@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ファンサイト - トップページ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>ようこそ、ファンサイトへ！</h1>
+
+<nav>
+    <ul>
+        <li><a th:href="@{/}">ホーム</a></li>
+        <li><a th:href="@{/contact}">お問い合わせ</a></li>
+        <li><a th:href="@{/gallery}">画像ギャラリー</a></li>
+        <li><a th:href="@{/admin/news}">管理者ログイン</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>最新のお知らせ</h2>
+    <ul>
+        <li th:each="news : ${newsList}">
+            <h3 th:text="${news.title}">タイトル</h3>
+            <p th:text="${news.content}">本文</p>
+            <small th:text="${#temporals.format(news.createdAt, 'yyyy-MM-dd HH:mm')}">日付</small>
+        </li>
+    </ul>
+</section>
+</body>
+</html>
