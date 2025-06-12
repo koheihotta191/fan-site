@@ -7,10 +7,10 @@
 <h1>お知らせ投稿</h1>
 <form th:action="@{/admin/news/new}" th:object="${news}" method="post">
     <label>タイトル:</label>
-    <input type="text" th:field="*{title}" required /><br>
+    <input type="text" th:field="*{title}" required><br>
 
-    <label>内容:</label><br>
-    <textarea th:field="*{content}" rows="5" cols="40" required></textarea><br>
+    <label>本文:</label>
+    <textarea th:field="*{content}" required></textarea><br>
 
     <button type="submit">投稿</button>
 </form>

@@ -3,9 +3,8 @@ package com.example.fan_site.controller;
 import com.example.fan_site.entity.News;
 import com.example.fan_site.repository.NewsRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin/news")
@@ -18,15 +17,14 @@ public class NewsController {
     }
 
     @GetMapping("/new")
-    public String showNewsForm(Model model) {
-        model.addAttribute("news", new News());
+    public String newNewsForm(@ModelAttribute("news") News news) {
         return "admin/news_form";
     }
 
     @PostMapping("/new")
-    public String submitNews(@ModelAttribute News news) {
-        news.setPostedAt(LocalDateTime.now());
+    public String createNews(@ModelAttribute News news, RedirectAttributes redirectAttributes) {
         newsRepository.save(news);
+        redirectAttributes.addFlashAttribute("message", "お知らせを投稿しました。");
         return "redirect:/";
     }
 }
