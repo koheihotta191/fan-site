@@ -20,10 +20,16 @@
 <section>
     <h2>最新のお知らせ</h2>
     <ul>
-        <li th:each="news : ${newsList}">
-            <h3 th:text="${news.title}">タイトル</h3>
-            <p th:text="${news.content}">本文</p>
-            <small th:text="${#temporals.format(news.createdAt, 'yyyy-MM-dd HH:mm')}">日付</small>
+        <li>
+            <h3>ライブ情報公開</h3>
+            <p>まふまふさんの新しいライブ情報が公開されました！</p>
+            <small>2025-06-10 18:00</small>
+        </li>
+        <li>
+            <h3>新曲公開！</h3>
+            <p>天月さんの新曲「夜空の旅人」がYouTubeに登場！</p>
+            <iframe width="560" height="315" src="ttps://www.youtube.com/embed/2jPNSF1Zkf4?si=ZQjMqlfX-Vf3aY-n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <small>2025-06-05 21:00</small>
         </li>
     </ul>
 </section>
