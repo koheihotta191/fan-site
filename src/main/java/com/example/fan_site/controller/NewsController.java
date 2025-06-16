@@ -17,19 +17,19 @@ public class NewsController {
         this.newsRepository = newsRepository;
     }
 
-    // 投稿フォーム表示（管理者限定）
-    @PreAuthorize("isAuthenticated()") // あとで "hasRole('ADMIN')" に変更可能
-    @GetMapping("/new")
-    public String showForm(Model model) {
+    // GET: 投稿作成フォーム表示
+    @GetMapping("/create")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String showCreateForm(Model model) {
         model.addAttribute("news", new News());
-        return "new";  // templates/new.html を表示
+        return "news/create";
     }
 
-    // 投稿処理
-    @PreAuthorize("isAuthenticated()")
+    // POST: 投稿データ保存
     @PostMapping("/create")
+    @PreAuthorize("hasRole('ADMIN')")
     public String createNews(@ModelAttribute News news) {
         newsRepository.save(news);
-        return "redirect:/";  // 投稿後トップページへリダイレクト
+        return "redirect:/";
     }
 }
