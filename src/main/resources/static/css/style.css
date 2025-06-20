@@ -1,0 +1,52 @@
+/* ベース設定 */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* 全体レイアウト */
+header, footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* 投稿一覧のスタイル */
+section h2 {
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    color: #2980b9;
+    margin-bottom: 0.3rem;
+}
+
+small {
+    color: #888;
+}

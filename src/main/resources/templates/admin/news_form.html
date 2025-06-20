@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>お知らせ投稿</title>
+    <title>News 投稿</title>
 </head>
 <body>
-<h1>お知らせ投稿</h1>
-<form th:action="@{/admin/news/new}" th:object="${news}" method="post">
-    <label>タイトル:</label>
-    <input type="text" th:field="*{title}" required><br>
+<h1>News 投稿</h1>
 
-    <label>本文:</label>
-    <textarea th:field="*{content}" required></textarea><br>
+<form th:action="@{/news/new}" th:object="${news}" method="post">
+    <label>タイトル:</label><br>
+    <input type="text" th:field="*{title}" /><br><br>
 
-    <button type="submit">投稿</button>
+    <label>本文:</label><br>
+    <textarea th:field="*{content}" rows="5" cols="50"></textarea><br><br>
+
+    <button type="submit">投稿する</button>
 </form>
+
 </body>
 </html>

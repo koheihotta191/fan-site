@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/news")
 public class NewsController {
 
     private final NewsRepository newsRepository;
@@ -17,18 +16,18 @@ public class NewsController {
         this.newsRepository = newsRepository;
     }
 
-    // GET: 投稿作成フォーム表示
-    @GetMapping("/create")
+    // GET: 投稿フォームの表示（管理者のみアクセス可能）
+    @GetMapping("/news/new")
     @PreAuthorize("hasRole('ADMIN')")
-    public String showCreateForm(Model model) {
+    public String showNewsForm(Model model) {
         model.addAttribute("news", new News());
-        return "news/create";
+        return "news_form";
     }
 
-    // POST: 投稿データ保存
-    @PostMapping("/create")
+    // POST: 投稿データの保存（管理者のみアクセス可能）
+    @PostMapping("/news/new")
     @PreAuthorize("hasRole('ADMIN')")
-    public String createNews(@ModelAttribute News news) {
+    public String submitNews(@ModelAttribute News news) {
         newsRepository.save(news);
         return "redirect:/";
     }
